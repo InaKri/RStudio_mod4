@@ -22,12 +22,26 @@ library("tidyverse")
 res <- read.csv("data/resource.csv")
 ```
 
+#Load the data:
+```{r}
+data(res)
+```
+
+
+```{r}
+ggplot(data = res, )
+```
+
+
+```{r}
+
+```
 
 
 
+```{r}
 
-
-
+```
 
 
 
