@@ -1,0 +1,37 @@
+---
+title: "MB5370 Module 04. Assignment 1: Plot Deconstruction"
+author: "Your Name
+output: html_document
+date: "2024-03-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Load tidyverse packages
+```{r}
+library("tidyverse")
+```
+
+
+# Load data
+
+```{r}
+res <- read.csv("data/resource.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
