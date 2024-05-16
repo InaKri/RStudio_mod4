@@ -21,6 +21,7 @@ library("tidyverse")
 ```{r}
 data("resource")
 ```
+
 ```{r}
 ggplot(data = resource ) +
     geom_line(mapping = aes(x = year, y = `Common Name`, color = `Common Name`))
