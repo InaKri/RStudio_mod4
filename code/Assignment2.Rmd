@@ -20,10 +20,89 @@ data <- read.csv("../data/export (2).csv")
 ```
 
 ```{r}
+head(data)
+glimpse(data)
+```
+# Data wrangling
+
+
+```{r}
+data <- data %>%
+  mutate(CalendarYear = as.numeric(CalendarYear)) %>%
+  mutate(Tonnes = as.numeric(Tonnes))
+data
+```
+
+
+
+
+
+
+#Part 2
+
+#Create a plot:
+```{r}
+ggplot(data, aes(CalendarYear, Tonnes)) +
+  geom_point(aes(color = CalendarYear)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Tonnes of catch each year") +
+    theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
 
 ```
 
 ```{r}
+ggplot(data, aes(CalendarYear, Tonnes)) +
+  geom_point(aes(color = CalendarYear), size = 2, alpha = 0.5) + # Adjust size and transparency
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
+    caption = "Data from fueleconomy.gov",
+    x = "Calendar Year",  # Improve axis labels
+    y = "Tonnes"
+  ) +
+  theme(axis.text = element_text(size = 10, angle = 45, hjust = 1))  # Adjust axis label size and orientation
+
+```
+
+
+```{r}
+ggplot(data, aes(CalendarYear, Tonnes)) +
+  geom_point(aes(color = CalendarYear)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
+    caption = "Data from fueleconomy.gov",
+    x = "Calendar Year",
+    y = "Tonnes"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
+
+
+
+```
+
+```{r}
+ggplot(data, aes(CalendarYear, Tonnes)) +
+  geom_point(aes(color = CalendarYear)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
+    caption = "Data from fueleconomy.gov",
+    x = "Calendar Year",
+    y = "Tonnes"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  ) +
+  scale_y_continuous(breaks = seq(1000, 7000, by = 1000), labels = seq(1000, 7000, by = 1000))
 
 ```
 
