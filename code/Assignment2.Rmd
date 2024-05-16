@@ -8,10 +8,15 @@ date: "2024-05-16"
 
 #Part 1
 
-#load data
-
+# Load tidyverse packages
 ```{r}
-data <- read.csv(data/)
+library("tidyverse")
+```
+
+
+#load data
+```{r}
+data <- read.csv("../data/export (2).csv")
 ```
 
 ```{r}
