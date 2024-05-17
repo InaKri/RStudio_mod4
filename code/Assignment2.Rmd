@@ -11,6 +11,9 @@ date: "2024-05-16"
 # Load tidyverse packages
 ```{r}
 library("tidyverse")
+library("sf") 
+library("terra")
+library("tmap")
 ```
 
 
@@ -20,12 +23,11 @@ data <- read.csv("../data/export (2).csv")
 ```
 
 ```{r}
-head(data)
 glimpse(data)
 ```
 # Data wrangling
 
-
+#change from character to numeric
 ```{r}
 data <- data %>%
   mutate(CalendarYear = as.numeric(CalendarYear)) %>%
@@ -33,10 +35,13 @@ data <- data %>%
 data
 ```
 
+#Remove the NA values in the datasett 
+```{r}
+if(any(is.na(data$Tonnes))) {
+  warning("There are still NA values in the Tonnes column.")
+}
 
-
-
-
+```
 
 #Part 2
 
