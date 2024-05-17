@@ -27,21 +27,16 @@ glimpse(data)
 ```
 # Data wrangling
 
-#change from character to numeric
+#change from character to numeric and removing "," in the numbers
 ```{r}
-data <- data %>%
+#data <- 
+  data %>%
   mutate(CalendarYear = as.numeric(CalendarYear)) %>%
+  mutate(Tonnes = str_replace(Tonnes, pattern = ",", replacement = "")) |>
   mutate(Tonnes = as.numeric(Tonnes))
-data
+#data
 ```
 
-#Remove the NA values in the datasett 
-```{r}
-if(any(is.na(data$Tonnes))) {
-  warning("There are still NA values in the Tonnes column.")
-}
-
-```
 
 #Part 2
 
@@ -49,13 +44,8 @@ if(any(is.na(data$Tonnes))) {
 ```{r}
 ggplot(data, aes(CalendarYear, Tonnes)) +
   geom_point(aes(color = CalendarYear)) +
-  geom_smooth(se = FALSE) +
-  labs(
-    title = "Tonnes of catch each year") +
-    theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
-  )
-
+  geom_smooth()
+ 
 ```
 
 ```{r}
